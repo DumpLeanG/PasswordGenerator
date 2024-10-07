@@ -1,0 +1,260 @@
+@import 'variables.scss';
+@import 'fonts.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: 'Dimkin';
+}
+
+h1 {
+    font-size: 36px;
+    font-family: 'Cunia';
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    font-family: 'Cunia';
+    text-align: center;
+}
+
+button, .button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    outline: none;
+    font-size: 24px;
+}
+
+[type="text"], [type="number"] {
+    padding: 15px 30px 15px 30px;
+    border-radius: 15px;
+}
+
+.container {
+    width: 930px;
+    padding: 0 15px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.menu {
+    background: $white;
+    padding: 20px 0;
+    box-shadow: 15px 15px 30px $dwhite;
+    position: relative;
+    z-index: 1;
+    &_block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &_logo {
+            filter: drop-shadow(-5px -5px 5px $lwhite) drop-shadow(5px 5px 5px $dwhite) ;
+        }
+        &_buttons {
+            display: flex;
+            gap: 30px;
+            &_btn {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 50px;
+                background: $white;
+                box-shadow: 5px 5px 5px $dwhite, -5px -5px 5px $lwhite;
+                &_txt {
+                    font-weight: 700;
+                    font-size: 24px;
+                    transform: translateY(3px);
+                }
+            }
+        }
+    }
+}
+
+.main {
+    background: $white;
+    padding: 80px 0;
+    min-height: calc(100vh - 344px);
+    &_block {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        &_generator {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 30px;
+            background: $white;
+            box-shadow: 15px 15px 30px $dwhite, -15px -15px 30px $lwhite;
+            border-radius: 30px;
+            &_elements {
+                display: flex;
+                gap: 60px;
+                &_box {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    &_item {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        &_input {
+                            background: $white;
+                            box-shadow: inset 5px 5px 5px $dwhite, inset -5px -5px 5px $lwhite;
+                            width: 390px;
+                        }
+                        &_inputs {
+                            display: flex;
+                            align-items: center;
+                            gap: 30px;
+                            &_num {
+                                background: $white;
+                                box-shadow: inset 5px 5px 5px $dwhite, inset -5px -5px 5px $lwhite;
+                                width: 34px;
+                                padding: 15px 15px 15px 30px;
+                                text-align: center;
+                            }
+                            &_range {
+                                position: relative;
+                                &_input {
+                                    -webkit-appearance: none;
+                                    background: none;
+                                    border-radius: 5px;
+                                    position: relative;
+                                    z-index: 1;
+                                    width: 250px;
+                                    height: 8px;
+                                    border-radius: 5px;
+                                }
+                                &_input::before {
+                                    content: '';
+                                    box-shadow: inset 2px 2px 2px $dwhite, inset -2px -2px 2px $lwhite;
+                                    background: $white;
+                                    width: 250px;
+                                    height: 8px;
+                                    display: block;
+                                    position: absolute;
+                                    z-index: -1;
+                                    border-radius: 5px;
+                                }
+                                &_input::-webkit-slider-thumb {
+                                    -webkit-appearance: none;
+                                    height: 25px;
+                                    width: 25px;
+                                    border-radius: 50%;
+                                    background: $blue;
+                                    cursor: ew-resize;
+                                }
+                                &_input::-webkit-slider-runnable-track  {
+                                    -webkit-appearance: none;
+                                }
+                                &_line {
+                                    background: $blue;
+                                    width: 125px;
+                                    height: 8px;
+                                    display: block;
+                                    position: absolute;
+                                    z-index: 1;
+                                    border-radius: 5px;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    pointer-events: none;
+                                }
+                            }
+                        }
+                    }
+                    &_list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 220px;
+                        gap: 10px 30px;
+                        &_item {
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                            &_check {
+                                width: 30px;
+                                height: 30px;
+                                position: absolute;
+                                opacity: 0;
+                                cursor: pointer;
+                            }
+                            &_txt {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                            }
+                            &_check+label::before {
+                                content: '';
+                                width: 30px;
+                                height: 30px;
+                                background: $white;
+                                box-shadow: inset 3px 3px 3px $dwhite, inset -3px -3px 3px $lwhite;
+                                border-radius: 5px;
+                            }
+                            &_check:checked+label::before {
+                                background: $blue;
+                                box-shadow: 3px 3px 3px $dwhite, -3px -3px 3px $lwhite;
+                                background-image: url(images/Checked.svg);
+                                background-repeat: no-repeat;
+                                background-position: center center;
+                                background-size: 50% 50%;
+                            }
+                        }
+                    }
+                }
+            }
+            &_btn {
+                padding: 15px 30px;
+                width: 100%;
+                background: $blue;
+                color: $white;
+                font-family: 'Cunia';
+                border-radius: 15px;
+                box-shadow: 5px 5px 5px $dwhite, -5px -5px 5px $lwhite;
+            }
+        }
+        &_passwords {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            &_list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                list-style: none;
+                width: 100%;
+                &_item {
+                    padding: 30px;
+                    background: $white;
+                    box-shadow: 15px 15px 30px $dwhite, -15px -15px 30px $lwhite;
+                    border-radius: 20px;
+                    width: 230px;
+                    font-size: 24px;
+                    color: $blue;
+                    text-align: center;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background: $white;
+    box-shadow: -15px -15px 30px $lwhite;
+    text-align: center;
+    padding: 30px 0;
+    &_block {
+        &_copyright {
+            font-size: 24px;
+        }
+    }
+}
