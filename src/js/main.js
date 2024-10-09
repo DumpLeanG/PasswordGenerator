@@ -1,5 +1,7 @@
 import '../scss/style.scss';
 import './ranges';
+import './generator';
+import './colorThemes';
 
 document.querySelector('#menu').innerHTML = `
     <div class="container menu_block">
@@ -9,8 +11,8 @@ document.querySelector('#menu').innerHTML = `
             </svg>  
         </a>
         <div class="menu_block_buttons">
-            <button class="menu_block_buttons_btn"><img src="images/Language.svg" alt="" class="menu_block_buttons_btn_img"><span class="menu_block_buttons_btn_txt">EN</span></button>
-            <button class="menu_block_buttons_btn"><img src="images/Theme.svg" alt="" class="menu_block_buttons_btn_img"><span class="menu_block_buttons_btn_txt">Light</span></button>
+            <!--<button class="menu_block_buttons_btn"><img src="images/Language.svg" alt="" class="menu_block_buttons_btn_img"><span class="menu_block_buttons_btn_txt">EN</span></button>-->
+            <button class="menu_block_buttons_btn" id="theme_swapper"><img src="images/Theme.svg" alt="" class="menu_block_buttons_btn_img"><span class="menu_block_buttons_btn_txt">Light</span></button>
         </div>           
     </div>
 `;
