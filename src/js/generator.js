@@ -25,14 +25,18 @@ document.addEventListener("DOMContentLoaded", function() {
     submitButton.addEventListener("click", function() {
         generatePasswords();
         passwordsList.innerHTML = '';
-        passwords.forEach(password => {
+        passwords.forEach((password, index) => {
             if (password === passwords[0]) return;
             let li = document.createElement('li');
-            li.className = 'main_block_passwords_list_item';
+            li.classList = 'main_block_passwords_list_item';
             li.textContent = password;
             passwordsList.appendChild(li);
+            setTimeout(() => {
+                li.classList.add('animated_item');
+            }, (index-1) * 300);
         });
     });
+    
 
     function generatePasswords() {
         let regexelements = '';
