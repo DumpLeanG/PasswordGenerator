@@ -85,3 +85,9 @@ document.querySelector('#main').innerHTML = `
           </div>
         </div>
 `;
+
+document.querySelector('#footer').innerHTML = `
+        <div class="container footer_block">
+          <span class="footer_block_copyright">2024 PassGen. Created by Michail Chinenov.</span>
+        </div>
+`;

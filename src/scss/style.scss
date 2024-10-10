@@ -264,6 +264,7 @@ input {
                 list-style: none;
                 width: 100%;
                 &_item {
+                    cursor: pointer;
                     padding: 30px;
                     box-shadow: 15px 15px 30px $dwhite, -15px -15px 30px $lwhite;
                     border-radius: 20px;
@@ -273,6 +274,28 @@ input {
                     text-align: center;
                     word-wrap: break-word;
                     opacity: 0;
+                    position: relative;
+                    &_message {
+                        position: absolute;
+                        top: -30px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: $black;
+                        color: $white;
+                        padding: 10px 15px;
+                        border-radius: 10px;
+                        opacity: 0;
+                        transition: opacity 0.3s;
+                        &_arrow {
+                            position: absolute;
+                            bottom: -9px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 10px;
+                            height: 10px;
+                            background: none;
+                        }
+                    }
                 }
             }
         }
@@ -386,6 +409,21 @@ input {
                 &_item {
                     box-shadow: 15px 15px 30px $dblack, -15px -15px 30px $lblack;
                     color: $lblue;
+                    &_message {
+                        position: absolute;
+                        top: -30px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: $white;
+                        color: $black;
+                        padding: 10px 15px;
+                        border-radius: 10px;
+                        opacity: 0;
+                        transition: opacity 0.3s;
+                        &_arrow path{
+                            fill: $white;
+                        }
+                    }
                 }
             }
         }
@@ -394,6 +432,10 @@ input {
 
 .dark-theme .footer {
     box-shadow: -15px -15px 30px $lblack;
+}
+
+.main_block_passwords_list_item .active_message {
+    opacity: 0.9;
 }
 
 /*  Dark Theme - END */
