@@ -9,21 +9,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     lengthRange.addEventListener('input', function (e) {
         lengthNum.value = e.target.value;
-        lengthLine.style.width = 5*e.target.value + 'px';
+        lengthLine.style.width = 2*e.target.value + '%';
     });
 
     lengthNum.addEventListener('input', function (e) {
         lengthRange.value = e.target.value;
-        lengthLine.style.width = 5*e.target.value + 'px';
+        lengthLine.style.width = 2*e.target.value + '%';
     });
 
     amountRange.addEventListener('input', function (e) {
         amountNum.value = e.target.value;
-        amountLine.style.width = 20.83*e.target.value + 'px';
+        amountLine.style.width = 8.33*e.target.value + '%';
     });
 
     amountNum.addEventListener('input', function (e) {
         amountRange.value = e.target.value;
-        amountLine.style.width = 20.83*e.target.value + 'px';
+        amountLine.style.width = 8.33*e.target.value + '%';
     });
 });

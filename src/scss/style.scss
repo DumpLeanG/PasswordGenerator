@@ -11,13 +11,13 @@
 .light-theme * {
     background: $white;
     color: $black;
-    transition: 0.3s;
+    transition: 0.3s, width 0s;
 }
 
 .dark-theme * {
     background: $black;
     color: $white;
-    transition: 0.3s;
+    transition: 0.3s, width 0s;
 }
 
 h1 {
@@ -30,6 +30,10 @@ h2 {
     font-size: 32px;
     font-family: 'Cunia';
     text-align: center;
+}
+
+a {
+    text-decoration: none;
 }
 
 button, .button {
@@ -86,7 +90,7 @@ input {
                     font-weight: 700;
                     font-size: 24px;
                     text-transform: uppercase;
-                    transform: translateY(3px);
+                    transform: translateY(2px);
                 }
             }
         }
@@ -95,7 +99,7 @@ input {
 
 .main {
     padding: 80px 0;
-    min-height: calc(100vh - 344px);
+    min-height: calc(100vh - 341px);
     &_block {
         display: flex;
         flex-direction: column;
@@ -110,6 +114,7 @@ input {
             &_elements {
                 display: flex;
                 gap: 60px;
+                flex-wrap: wrap;
                 &_box {
                     display: flex;
                     flex-direction: column;
@@ -299,12 +304,17 @@ input {
         &_logo {
             filter: drop-shadow(-5px -5px 5px $lblack) drop-shadow(5px 5px 5px $dblack) ;
         }
-        &_logo svg path {
-            fill: $lblue;
+        &_logo {
+            &_img path{
+                fill: $lblue;
+            }
         }
         &_buttons {
             &_btn {
                 box-shadow: 5px 5px 5px $dblack, -5px -5px 5px $lblack;
+                &_img circle {
+                    stroke: $white;
+                }
             }
         }
     }
@@ -387,3 +397,105 @@ input {
 }
 
 /*  Dark Theme - END */
+
+
+
+/*  Tablet Media  */
+@media (max-width: 1024px) {
+    .container {
+        width: auto;
+    }
+    
+    .main {
+        &_block {
+            &_generator {
+                &_elements {
+                    flex-wrap: wrap;
+                    gap: 30px;
+                    &_box {
+                        width: 100%;
+                        &_item {
+                            &_input {
+                                width: calc(100% - 60px);
+                            }
+                            &_inputs {
+                                &_num {
+                                    padding: 15px 30px 15px 30px;
+                                }
+                                &_range {
+                                    width: 100%;
+                                    &_input {
+                                        width: 100%;
+                                    }
+                                    &_input::before {
+                                        width: 100%;
+                                    }
+                                    &_line {
+                                        width: 50%;
+                                    }
+                                }
+                            }
+                        }
+                        &_list {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            &_passwords {
+                &_list {
+                    &_item {
+                        width: calc(33.33% - 80px);
+                    }
+                }
+            }
+        }
+    }
+}
+/*  Tablet Media - END */
+
+
+/*  Mobile Media  */
+@media (max-width: 767px) {
+    .menu {
+        padding: 15px 0;
+        &_block {
+            &_logo {
+                height: 50px;
+            }
+            &_logo svg {
+                background: none;
+                width: 100px;
+            }
+            &_buttons {
+                &_btn {
+                    &_img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                    &_txt {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    .main {
+        padding: 60px 0;
+        min-height: calc(100vh - 265px);
+        &_block {
+            &_passwords {
+                &_list {
+                    &_item {
+                        width: calc(100% - 60px);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        padding: 20px 0;
+    }
+}

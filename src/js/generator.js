@@ -81,6 +81,9 @@ document.addEventListener("DOMContentLoaded", function() {
             for(let j = 0; j < length; j++) {
                 password += charset.charAt(Math.random() * charset.length);
             }
+            if(length < 3) {
+                return;
+            };
             if (!(regex.test(password))) {
                 checkPassword(password);
             } else {
@@ -93,6 +96,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         example = passwords[0];
-        exampleInput.value = example;
+        if(length < 3) {
+            exampleInput.value = 'Error: Password must be at least 3 characters!'
+        } else {  
+            exampleInput.value = example;
+        }
     }
 });
